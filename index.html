@@ -11,8 +11,14 @@
         <a-assets>
             <a-asset-item id="myModel" src="Z-line-9.glb"></a-asset-item>
         </a-assets>
-         
-        <!-- Updated entity to scale the model to 1 and start all animations -->
+
+        <!-- Camera with wasd-controls for movement (including forward and backward to simulate zoom) -->
+        <a-camera position="0 1.6 2" look-controls wasd-controls="fly: true; acceleration: 200">
+            <!-- Mouse wheel to zoom (move camera along z-axis) -->
+            <a-cursor></a-cursor>
+        </a-camera>
+
+        <!-- Entity to hold the GLB model -->
         <a-entity gltf-model="#myModel" 
                   position="0 1 -5" 
                   scale="1 1 1" 
