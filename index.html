@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+ 
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-    
 </head>
 <body>
-    <div class="fixed-scene-container">
     <a-scene vr-mode-ui="enabled: false" renderer="antialias: true;
                     precision: high;
                     colorManagement: true;
@@ -25,15 +24,12 @@
         <a-camera wasd-controls-enabled="false" look-controls-enabled="false" position="0 0 3" rotation="0 0 0"></a-camera>
 
        
-        <a-entity id="plex"
-                  gltf-model="myModel" 
+        <a-entity gltf-model="#myModel" 
                   position="0 0 -5" 
                   scale="1 1 1"
                   rotation="90 0 0"
-                  nimation-mixer>
+                  animation-mixer>
         </a-entity>
     </a-scene>
-    </div>
-    
 </body>
-</html>
+</html> 
