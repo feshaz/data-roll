@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>3D Model Display</title>
-    <!-- Include A-Frame Library -->
+    <title></title>
+ 
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 </head>
@@ -15,15 +15,15 @@
                     physicallyCorrectLights: true;
                     maxCanvasWidth: 4000;
                     maxCanvasHeight: 4000;">
-        <!-- Asset management system to preload the GLB model -->
+        
         <a-assets>
             <a-asset-item id="myModel" src="Z-line-11.glb"></a-asset-item>
         </a-assets>
 
-        <!-- Camera setup with fixed position and orientation -->
-        <a-camera wasd-controls-enabled="false" look-controls-enabled="false" position="0 0 2" rotation="0 0 0"></a-camera>
+       
+        <a-camera wasd-controls-enabled="false" look-controls-enabled="false" position="0 0 3" rotation="0 0 0"></a-camera>
 
-        <!-- Entity to hold the GLB model, applying rotation and animation-mixer for playing animations -->
+       
         <a-entity gltf-model="#myModel" 
                   position="0 0 -5" 
                   scale="1 1 1"
