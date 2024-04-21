@@ -10,18 +10,18 @@
 <body>
     <a-scene renderer="antialias: true;
                     precision: high;
-                   colorManagement: true;
-                   sortObjects: true;
-                   physicallyCorrectLights: true;
-                   maxCanvasWidth: 4000;
-                   maxCanvasHeight: 4000;">
+                    colorManagement: true;
+                    sortObjects: true;
+                    physicallyCorrectLights: true;
+                    maxCanvasWidth: 4000;
+                    maxCanvasHeight: 4000;">
         <!-- Asset management system to preload the GLB model -->
         <a-assets>
             <a-asset-item id="myModel" src="Z-line-11.glb"></a-asset-item>
         </a-assets>
 
-        <!-- Camera setup with default look-controls for user interaction -->
-        <a-camera position="0 1.6 2"></a-camera>
+        <!-- Camera setup with fixed position and orientation -->
+        <a-camera position="0 1.6 2" rotation="0 0 0"></a-camera>
 
         <!-- Entity to hold the GLB model, applying rotation and animation-mixer for playing animations -->
         <a-entity gltf-model="#myModel" 
