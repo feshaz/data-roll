@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
- 
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    
 </head>
 <body>
-    <a-scene vr-mode-ui="enabled: false" renderer="antialias: true;
-                    precision: high;
-                    colorManagement: true;
-                    sortObjects: true;
-                    physicallyCorrectLights: true;
-                    maxCanvasWidth: 4000;
-                    maxCanvasHeight: 4000;">
-        
+    <button class="mode-switch">Toggle Dark Mode</button>
+
+    <a-scene vr-mode-ui="enabled: false" renderer="antialias: true; precision: high; colorManagement: true; sortObjects: true; physicallyCorrectLights: true; maxCanvasWidth: 4000; maxCanvasHeight: 4000;">
         <a-assets>
             <a-asset-item id="myModel" src="Z-line-work-18.glb"></a-asset-item>
         </a-assets>
 
-       
         <a-camera wasd-controls-enabled="false" look-controls-enabled="false" position="0 0 3" rotation="0 0 0"></a-camera>
 
-       
         <a-entity gltf-model="#myModel" 
                   position="0 0 -5" 
                   scale="1 1 1"
@@ -31,5 +24,26 @@
                   animation-mixer>
         </a-entity>
     </a-scene>
+
+    <script>
+        // Function to toggle dark mode and change model color
+        function toggleDarkMode() {
+            var sceneEl = document.querySelector('a-scene');
+            var model = sceneEl.querySelector('[gltf-model]');
+            var isDarkMode = localStorage.getItem('darkMode') === 'true';
+            localStorage.setItem('darkMode', !isDarkMode);
+            model.setAttribute('material', 'color', isDarkMode ? 'white' : 'black');
+        }
+
+        // Check initial dark mode setting and set model color
+        document.addEventListener('DOMContentLoaded', function() {
+            var initialColor = localStorage.getItem('darkMode') === 'true' ? 'black' : 'white';
+            var model = document.querySelector('a-scene').querySelector('[gltf-model]');
+            model.setAttribute('material', 'color', initialColor);
+        });
+
+        // Add event listener to the mode switch button
+        document.querySelector('.mode-switch').addEventListener('click', toggleDarkMode);
+    </script>
 </body>
-</html> 
+</html>
