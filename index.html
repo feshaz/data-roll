@@ -7,24 +7,21 @@
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 </head>
 <body>
-    <a-scene renderer="antialias: true; colorManagement: true;">
+    <a-scene>
         <a-assets>
             <a-asset-item id="myModel" src="Z-line-9.glb"></a-asset-item>
         </a-assets>
 
-        <!-- Camera with WASD controls for movement and enhanced zoom control -->
+        <!-- Camera with look-controls and wasd-controls for movement -->
         <a-camera position="0 1.6 2" look-controls wasd-controls="fly: true; acceleration: 200">
             <a-cursor></a-cursor>
         </a-camera>
 
-        <!-- Directional light to enhance model visibility and aesthetics -->
-        <a-light type="directional" position="1 2 3" intensity="0.5" target="#myModel"></a-light>
-
-        <!-- Entity to hold the GLB model with enhanced rotation and scale -->
+        <!-- Entity to hold the GLB model, now rotated 90 degrees around the Y-axis -->
         <a-entity gltf-model="#myModel" 
                   position="0 1 -5" 
-                  scale="1 1 1"
-                  rotation="90 0 0" 
+                  scale="1 1 1" 
+                  rotation="0 90 0" 
                   animation-mixer>
         </a-entity>
     </a-scene>
