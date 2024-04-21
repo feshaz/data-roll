@@ -2,16 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple A-Frame GLB Loader</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <title>3D Model with Animations</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
+    <style>
+        model-viewer {
+            width: 100%;
+            height: 100%; /* Adjust as needed */
+        }
+    </style>
 </head>
 <body>
-    <a-scene>
-        <a-assets>
-            <a-asset-item id="myModel" src="AP-6-F-A-JOOO-5.glb"></a-asset-item>
-        </a-assets>
-        <!-- Position the model in front of the camera -->
-        <a-entity gltf-model="#myModel" position="0 0 -5" scale="2 2 2"></a-entity>
-    </a-scene>
+
+<model-viewer 
+  id="animatedModel"
+  src="AP-6-F-A-JOOO-3.glb" 
+  ar 
+  ar-modes="webxr scene-viewer quick-look" 
+  camera-controls 
+  tone-mapping="neutral" 
+  poster="poster.webp"
+  autoplay>
+</model-viewer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modelViewer = document.querySelector('#animatedModel');
+
+    modelViewer.addEventListener('load', () => {
+      // Ensure all animations play at once
+      if (modelViewer.model && modelViewer.model.animations) {
+        modelViewer.animationName = 'all'; // Play all animations
+        modelViewer.currentTime = 0;       // Optionally reset the animation time
+        modelViewer.play();                // Start playing animations
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
