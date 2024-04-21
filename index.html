@@ -8,7 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 </head>
 <body>
-    <a-scene>
+    <a-scene renderer="antialias: true;
+                   colorManagement: true;
+                   sortObjects: true;
+                   physicallyCorrectLights: true;
+                   maxCanvasWidth: 1920;
+                   maxCanvasHeight: 1920;">
         <!-- Asset management system to preload the GLB model -->
         <a-assets>
             <a-asset-item id="myModel" src="Z-line-10.glb"></a-asset-item>
