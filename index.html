@@ -20,7 +20,6 @@
         
         <a-assets>
             <a-asset-item id="myModel" src="Z-line-work-18.glb"></a-asset-item>
-            <div id="loadingScreen" style="background-color: #red; width:"100%"; height:"100%"; ">e</div>
         </a-assets>
 
        
@@ -34,13 +33,6 @@
                   animation-mixer>
         </a-entity>
     </a-scene>
-
-    <script>
-  // Example JavaScript to hide custom loading screen when assets are loaded
-  AFRAME.scenes[0].addEventListener('loaded', function () {
-    document.getElementById('loadingScreen').style.display = 'none';
-  });
-</script>
     
 </body>
 </html> 
